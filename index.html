@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/home.css">
+  <!-- Add Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Mohamed Atef - Dentist Portfolio</title>
+</head>
+<body>
+  <!-- Add particles container -->
+  <div class="particles-container" id="particles-container"></div>
+  
+  <nav class="navbar">
+    <div class="logo">Mohamed Atef</div>
+    <div class="nav-links" id="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+
+      <!-- Dropdown for My Works -->
+      <div class="dropdown">
+        <button class="dropbtn">My Works</button>
+        <div class="dropdown-content">
+          <a href="Operative.html"><i class="fas fa-tooth"></i> Operative</a>
+          <a href="Endo.html"><i class="fas fa-microscope"></i> Endo</a>
+          <a href="Fixed.html"><i class="fas fa-crown"></i> Fixed Prosthesis</a>
+          <a href="Pedo.html"><i class="fas fa-child"></i> Pedodontics</a>
+          <a href="Surgery.html"><i class="fas fa-syringe"></i> Surgery</a>
+          <a href="Removable.html"><i class="fas fa-teeth"></i> Removable</a>
+        </div>
+      </div>
+
+      <a href="#contact">Contact</a>
+      <a href="Resume.pdf" download class="resume-btn" target="_blank">Download Resume</a>
+      
+      <!-- Conditionally show login or dashboard/logout buttons -->
+      <span id="auth-buttons">
+      </span>
+      
+      <button class="theme-toggle" id="theme-toggle">🌙</button>
+    </div>
+    <!-- Add mobile toggle button -->
+    <button class="mobile-toggle" id="mobile-toggle">☰</button>
+  </nav>
+
+  <section class="Welcome" id="home">
+    <h1>Dr. Mohamed Atef — Dentist & Clinical Specialist</h1>
+    <h3>Explore my clinical expertise and professional achievements</h3>
+    <!-- Add CTA buttons -->
+    <div class="cta-buttons">
+      <button onclick="location.href='#works'">View My Work</button>
+      <button class="btn-secondary" onclick="location.href='#contact'">Contact Me</button>
+    </div>
+    <!-- Add scroll indicator -->
+    <div class="scroll-indicator" onclick="location.href='#about'">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <section class="Me" id="about">
+    <!-- Update profile image container -->
+    <div class="profile-img-container">
+      <img src="images/mee.png" alt="Mohamed Atef">
+    </div>
+    <h2>Dentist</h2>
+    <h2>General Dentist</h2>
+  </section>
+
+  <section id="about-me">
+    <h2>About Me</h2>
+    <p>A highly motivated dentist specializing in Removable Prosthodontics with strong clinical expertise across restorative dentistry, oral surgery, and digital workflows. Combining hands-on patient care with excellent teaching and presentation skills, I bring a unique blend of academic excellence, clinical versatility, and leadership potential.</p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <ul>
+        <li>Teamwork & Collaboration</li>
+        <li>Creativity</li>
+        <li>Presentation Skills</li>
+        <li>Communication Skills</li>
+        <li>Leadership Potential</li>
+      </ul>
+      <ul>
+        <li>Digital Dentistry (Scanning workflows)</li>
+        <li>Photography & Camera Handling</li>
+        <li>Photo & Video Editing</li>
+        <li>Microsoft Office</li>
+      </ul>
+      <ul>
+        <li>Restorative Dentistry</li>
+        <li>Prosthodontics</li>
+        <li>Oral Surgery assistance</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="Languages">
+    <h2>Languages</h2>
+    <ul>
+      <li>Arabic (Native)</li>
+      <li>English (Fluent)</li>
+    </ul>
+  </section>
+
+  <section class="Education">
+    <h2>Education</h2>
+    <ul>
+      <li>BDS - Cairo University, 2023, Excellent With Honour</li>
+      <li>MBA (in progress) – Cairo University</li>
+      <li>Visitor Resident - Cairo University</li>
+    </ul>
+  </section>
+
+  <section id="works">
+    <h2>My Work</h2>
+    <div class="work-card">
+      <h3>Operative</h3>
+      <img src="images/operative.jpg" alt="Operative Work">
+      <div class="tags">
+        <span class="tag">Dentistry</span>
+        <span class="tag">Restoration</span>
+      </div>
+      <button><a href="Operative.html" style="color:white; text-decoration:none;">View All</a></button>
+    </div>
+    <div class="work-card">
+      <h3>Endo</h3>
+      <img src="images/endoo.png" alt="Endo Work">
+      <div class="tags">
+        <span class="tag">Endodontics</span>
+        <span class="tag">Root Canal</span>
+      </div>
+      <button><a href="Endo.html" style="color:white; text-decoration:none;">View All</a></button>
+    </div>
+    <div class="work-card">
+      <h3>Fixed Prosthesis</h3>
+      <img src="images/fixed.jpg" alt="Fixed Prosthesis">
+      <div class="tags">
+        <span class="tag">Prosthodontics</span>
+        <span class="tag">Crowns</span>
+      </div>
+      <button><a href="Fixed.html" style="color:white; text-decoration:none;">View All</a></button>
+    </div>
+    <div class="work-card">
+      <h3>Pedodontics</h3>
+      <img src="images/Pedo.png" alt="Pedodontics">
+      <div class="tags">
+        <span class="tag">Pediatric</span>
+        <span class="tag">Children</span>
+      </div>
+      <button><a href="Pedo.html" style="color:white; text-decoration:none;">View All</a></button>
+    </div>
+    <div class="work-card">
+      <h3>Surgery</h3>
+      <img src="images/Suergery.webp" alt="Surgery">
+      <div class="tags">
+        <span class="tag">Oral Surgery</span>
+        <span class="tag">Extraction</span>
+      </div>
+      <button><a href="Surgery.html" style="color:white; text-decoration:none;">View All</a></button>
+    </div>
+    <div class="work-card">
+      <h3>Removable</h3>
+      <img src="images/REMOVABLE.webp" alt="Removable">
+      <div class="tags">
+        <span class="tag">Prosthodontics</span>
+        <span class="tag">Dentures</span>
+      </div>
+      <button><a href="Removable.html" style="color:white; text-decoration:none;">View All</a></button>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>If you'd like to get in touch, feel free to reach out via email or connect with me on Phone.</p>
+    
+    <div class="contact-methods">
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:mohamedatefm397@gmail.com">mohamedatefm397@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>01010521448</span>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/home.js"></script>
+
+</body>
+</html>

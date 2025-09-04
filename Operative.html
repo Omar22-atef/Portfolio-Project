@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Cases.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operative Cases</title>
+    <style>
+    /* Additional styles for drag and drop functionality */
+    .cases-container .case-card {
+        cursor: grab;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cases-container .case-card:active {
+        cursor: grabbing;
+    }
+
+    .cases-container .case-card.dragging {
+        opacity: 0.5;
+        transform: scale(0.95);
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .cases-container .case-card.drag-over {
+        border: 2px dashed #4CAF50;
+    }
+
+    .reorder-instructions {
+        text-align: center;
+        margin: 15px 0;
+        color: #666;
+        font-style: italic;
+        grid-column: 1 / -1;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .cases-container .case-card {
+            width: 100%;
+        }
+        .reorder-instructions {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 10px;
+        }
+        .cases-container .case-card {
+            width: 100%;
+        }
+        .reorder-instructions {
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="theme-toggle-container">
+        <button id="themeToggle" class="theme-toggle"></button>
+    </div>
+
+    <div class="header">
+        <a href="javascript:history.back()" class="back-btn" id="backButton">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <h1>Let's See All Operative Cases</h1>
+    </div>
+
+    <div class="cases-container">
+    <div class="case-card" data-id="case1">
+      <div class="case-header"><h2>Class 1 lower 6 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture1.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture2.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture3.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture4.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture5.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case2">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture6.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture7.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture8.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture9.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case3">
+      <div class="case-header"><h2>Class 2 upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture10.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture11.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture12.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case4">
+      <div class="case-header"><h2>Class 1 lower 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture13.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture14.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture15.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case5">
+      <div class="case-header"><h2>Class 2 upper 4,5</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture16.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture17.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture18.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture19.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case6">
+      <div class="case-header"><h2>Class 1 in lower 5 6 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture20.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture21.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case7">
+      <div class="case-header"><h2>Class 2 upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture22.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture23.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture24.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture25.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture26.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture27.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case8">
+      <div class="case-header"><h2>Restoration upper lateral</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture28.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture29.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case9">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture30.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture31.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture32.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture33.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture34.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case10">
+      <div class="case-header"><h2>Class3 upper canine</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture35.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture36.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture37.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture38.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case11">
+      <div class="case-header"><h2>Class 1 upper 6 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture39.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture40.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture41.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture42.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture43.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case12">
+      <div class="case-header"><h2>Class 2 upper 5</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture44.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture45.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture46.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case13">
+      <div class="case-header"><h2>Class 5 upper 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture47.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture48.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case14">
+      <div class="case-header"><h2>Class 5 lower 3 4</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture49.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture50.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case15"> 
+      <div class="case-header"><h2>Class 3 upper lateral</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture51.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture52.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture53.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture54.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture55.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture56.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case16">
+      <div class="case-header"><h2>Class 1 upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture57.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture58.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture59.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture60.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case17">
+      <div class="case-header"><h2>Restoration upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture61.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture62.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture63.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture64.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case18">
+      <div class="case-header"><h2>Class 1 lower 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture65.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture66.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture67.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture68.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case19">
+      <div class="case-header"><h2>Class 2 lower right 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture69.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture70.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture71.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture72.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case20">
+      <div class="case-header"><h2>Class 2 upper 5,6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture73.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture74.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture75.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture76.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture77.jpg" class="case-image" alt="">
+        <img src="Operative-images/Picture78.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case21">
+      <div class="case-header"><h2>Class 3 lower 2 3</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images/Picture79.png"  class="case-image" alt="">
+        <img src="Operative-images2/Picture80.png" class="case-image" alt="">
+        <img src="Operative-images2/Picture81.png" class="case-image" alt="">
+        <img src="Operative-images2/Picture82.png" class="case-image" alt="">
+        <img src="Operative-images2/Picture83.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture84.png" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case22">
+      <div class="case-header"><h2>Deep upper 7</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture85.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture86.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture87.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture88.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture89.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture90.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case23">
+      <div class="case-header"><h2>Restoration lower 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture91.jpg"class="case-image" alt="">
+        <img src="Operative-images2/Picture92.jpg"class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case24">
+      <div class="case-header"><h2>Restoration lower 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture93.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture94.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture95.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture96.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case25">
+      <div class="case-header"><h2>Class 1 upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture97.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture98.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture99.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture100.jpg"class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case26">
+      <div class="case-header"><h2>Class 2 upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture101.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture102.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture103.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture104.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture105.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case27">
+      <div class="case-header"><h2>Class 3 upper 1 2</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture106.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture107.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture108.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case28">
+      <div class="case-header"><h2>Class 2 upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picture109.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture110.jpg" class="case-image" alt="">
+        <img src="Operative-images2/Picture111.jpg" class="case-image" alt="">
+      </div>
+    </div>
+    
+    <div class="case-card" data-id="case29">
+      <div class="case-header"><h2>Operative lower 6</h2></div>
+      <div class="images-grid">
+        <img src="Operative-images2/Picturep1.jpeg" class="case-image" alt="">
+        <img src="Operative-images2/Picturep2.jpeg" class="case-image" alt="">
+        <img src="Operative-images2/Picturep3.jpeg" class="case-image" alt="">
+        <img src="Operative-images2/Picturep4.jpeg" class="case-image" alt="">
+        <img src="Operative-images2/Picturep5.jpeg" class="case-image" alt="">
+        <img src="Operative-images2/Picturep6.jpeg" class="case-image" alt="">
+        <img src="Operative-images2/Picturep7.jpeg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+  <div id="caption"></div>
+</div>
+
+
+</div>
+    <!-- SHARED SCRIPT FOR ALL CATEGORY PAGES -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="js/category-loader.js"></script>
+</body>
+</html>

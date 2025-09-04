@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Cases.css"> <!-- Use the correct CSS for each page -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATE THE TITLE FOR EACH CATEGORY -->
+    <title>Removable Cases</title>
+    <style>
+    /* Additional styles for drag and drop functionality */
+    .cases-container .case-card {
+        cursor: grab;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cases-container .case-card:active {
+        cursor: grabbing;
+    }
+
+    .cases-container .case-card.dragging {
+        opacity: 0.5;
+        transform: scale(0.95);
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .cases-container .case-card.drag-over {
+        border: 2px dashed #4CAF50;
+    }
+
+    .reorder-instructions {
+        text-align: center;
+        margin: 15px 0;
+        color: #666;
+        font-style: italic;
+        grid-column: 1 / -1;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .cases-container .case-card {
+            width: 100%;
+        }
+        .reorder-instructions {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 10px;
+        }
+        .cases-container .case-card {
+            width: 100%;
+        }
+        .reorder-instructions {
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <div class="theme-toggle-container">
+        <button id="themeToggle" class="theme-toggle"></button>
+    </div>
+
+    <div class="header">
+        <a href="javascript:history.back( )" class="back-btn" id="backButton">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        <!-- UPDATE THE H1 FOR EACH CATEGORY -->
+        <h1>Let's See All Removable Cases</h1>
+    </div>
+
+<div class="cases-container">
+
+    <div class="case-card" data-id="case131">
+        <div class="case-header"><h2>Complete Denture</h2></div>
+        <div class="images-grid">
+            <img src="Removable-images/Picture371.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture372.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture373.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture374.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture375.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture376.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture377.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture378.jpg" class="case-image" alt="">
+            <img src="Removable-images/Picture379.jpg" class="case-image" alt="">
+        </div>
+    </div>
+
+    <div class="case-card" data-id="case132"> 
+        <div class="case-header"><h2>Complete Denture</h2></div>
+        <div class="images-grid">
+            <img src="Removable-images/Picture380.jpg" class="case-image" alt="">
+        </div>
+    </div>
+
+    <div class="case-card" data-id="case133">
+        <div class="case-header"><h2>Upper partial lower complete</h2></div>
+        <div class="images-grid">
+            <img src="Removable-images/Picture381.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture382.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture383.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture384.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture385.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture386.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture387.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture388.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture389.jpeg" class="case-image" alt="">
+        </div>
+    </div>
+
+    <div class="case-card" data-id="case134">
+        <div class="case-header"><h2>Case complete upper and lower</h2></div>
+        <div class="images-grid">
+            <img src="Removable-images/Picture390.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture391.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture392.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture393.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture394.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture395.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture396.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture397.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture398.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture399.jpeg" class="case-image" alt="">
+        </div>
+    </div>
+
+    <div class="case-card" data-id="case135">
+        <div class="case-header"><h2>Case lower complete</h2></div>
+        <div class="images-grid">
+            <img src="Removable-images/Picture400.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture401.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture402.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture403.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture404.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture405.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture406.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture407.jpeg" class="case-image" alt="">
+        </div>
+    </div>
+
+    <div class="case-card" data-id="case136">
+        <div class="case-header"><h2>Case flexible denture</h2></div>
+        <div class="images-grid">
+            <img src="Removable-images/Picture408.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture409.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture410.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture411.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture412.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture413.jpeg" class="case-image" alt="">
+            <img src="Removable-images/Picture414.jpeg" class="case-image" alt="">
+        </div>
+    </div>
+
+</div>
+
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption" class="caption"></div>
+    </div>
+
+    <!-- SHARED SCRIPT FOR ALL CATEGORY PAGES -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+     
+    <script src="js/category-loader.js"></script>
+</body>
+</html>

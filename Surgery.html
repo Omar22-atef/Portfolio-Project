@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="css/Cases.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surgery Cases</title>
+  <style>
+    /* Additional styles for drag and drop functionality */
+    .cases-container .case-card {
+        cursor: grab;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .cases-container .case-card:active {
+        cursor: grabbing;
+    }
+
+    .cases-container .case-card.dragging {
+        opacity: 0.5;
+        transform: scale(0.95);
+        box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .cases-container .case-card.drag-over {
+        border: 2px dashed #4CAF50;
+    }
+
+    .reorder-instructions {
+        text-align: center;
+        margin: 15px 0;
+        color: #666;
+        font-style: italic;
+        grid-column: 1 / -1;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1024px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .cases-container .case-card {
+            width: 100%;
+        }
+        .reorder-instructions {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .cases-container {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 10px;
+        }
+        .cases-container .case-card {
+            width: 100%;
+        }
+        .reorder-instructions {
+            font-size: 0.85rem;
+            margin: 10px 0;
+        }
+    }
+</style>
+
+</head>
+<body>
+  <div class="theme-toggle-container">
+    <button id="themeToggle" class="theme-toggle"></button>
+  </div>
+
+  <div class="header">
+    <a href="javascript:history.back()" class="back-btn" id="backButton">
+      <i class="fas fa-arrow-left"></i> Back
+    </a>
+    <h1>Let's See All Surgery Cases</h1>
+  </div>
+
+  <div class="cases-container">
+
+    <div class="case-card" data-id="case140">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture327.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture328.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case141">
+      <div class="case-header"><h2>Surgical extraction upper 7</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture329.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case142">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture330.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case143">
+      <div class="case-header"><h2>Extraction lower 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture331.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture332.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture333.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case144">
+      <div class="case-header"><h2>Extraction lower 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture334.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture335.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case145">
+      <div class="case-header"><h2>Extraction lower 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture336.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture337.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case146">
+      <div class="case-header"><h2>Extraction lower 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture338.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case147">
+      <div class="case-header"><h2>Extraction upper 6</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture339.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case148">
+      <div class="case-header"><h2>Extraction lower 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture340.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case149">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture341.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture342.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case150">
+      <div class="case-header"><h2>Extraction lower 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture343.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture344.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case151">
+      <div class="case-header"><h2>Extraction cases</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture345.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture346.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture347.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture348.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture349.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture350.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture351.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture352.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture353.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case152">
+      <div class="case-header"><h2>Extraction cases</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture354.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture355.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture356.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture357.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture358.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture359.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture360.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture361.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case153">
+      <div class="case-header"><h2>Extraction cases</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture362.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture363.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture364.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case154">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture365.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture366.jpg" class="case-image" alt="">
+      </div>
+    </div>
+
+    <div class="case-card" data-id="case155">
+      <div class="case-header"><h2>Extraction upper 8</h2></div>
+      <div class="images-grid">
+        <img src="Surgery-images/Picture367.jpg" class="case-image" alt="">
+        <img src="Surgery-images/Picture368.png" class="case-image" alt="">
+      </div>
+    </div>
+
+  </div><!-- end of cases-container -->
+
+  <!-- Image Modal -->
+  <div id="imageModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
+    <div id="caption" class="caption"></div>
+  </div>
+
+  <!-- SHARED SCRIPT FOR ALL CATEGORY PAGES -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+    <script src="js/category-loader.js"></script>
+</body>
+</html>
