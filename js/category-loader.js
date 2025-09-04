@@ -5,14 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initImageModals();
 });
 
-// --------- حفظ ترتيب الكروت ----------
 function saveOrder() {
     const container = document.querySelector('.cases-container');
     const order = Array.from(container.querySelectorAll('.case-card')).map(card => card.dataset.id);
     localStorage.setItem('casesOrder', JSON.stringify(order));
 }
 
-// --------- تحميل ترتيب الكروت ----------
 function loadOrder() {
     const container = document.querySelector('.cases-container');
     const savedOrder = JSON.parse(localStorage.getItem('casesOrder'));
@@ -24,23 +22,26 @@ function loadOrder() {
     });
 }
 
-// --------- ترتيب الكروت بالسحب ----------
 function initSortable() {
-    const container = document.querySelector('.cases-container');
-    if (!container) return;
+  const container = document.querySelector('.cases-container');
+  if (!container) return;
 
-    new Sortable(container, {
-        animation: 150,
-        ghostClass: 'dragging',
-        handle: '.case-card',
-        touchStartThreshold: 5,
-        onEnd: function() {
-            saveOrder(); // حفظ الترتيب بعد أي سحب
-        }
-    });
+  new Sortable(container, {
+    animation: 150,
+    ghostClass: 'dragging',
+    handle: '.case-card',        
+    touchStartThreshold: 5,
+    delay: 150,                  
+    delayOnTouchOnly: true,
+    filter: '.case-image',       
+    preventOnFilter: false,      
+    onEnd: function() {
+      saveOrder(); 
+    }
+  });
 }
 
-// --------- فتح الصور في مودال ----------
+
 function initImageModals() {
     const modal = document.getElementById('imageModal');
     if (!modal) return;
@@ -90,7 +91,6 @@ function initImageModals() {
     }
 }
 
-// --------- زرار تبديل الثيم ----------
 function initTheme() {
     const themeToggle = document.getElementById('themeToggle');
     const savedTheme = localStorage.getItem('theme');
