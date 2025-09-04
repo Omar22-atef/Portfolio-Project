@@ -1,0 +1,378 @@
+/* ------------------- Variables ------------------- */
+:root {
+    --primary: #0ea5e9;
+    --primary-light: #38bdf8;
+    --primary-dark: #0284c7;
+    --text-light: #222;
+    --text-dark: #e5e7eb;
+    --bg-light: linear-gradient(135deg, #f4f7fb, #eaeef5);
+    --bg-dark: linear-gradient(135deg, #0a0f1a, #141c2b);
+    --card-light: rgba(255, 255, 255, 0.95);
+    --card-dark: rgba(20, 25, 40, 0.95);
+    --shadow-light: 0 8px 24px rgba(0,0,0,0.1);
+    --shadow-dark: 0 8px 28px rgba(0,0,0,0.6);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --border-radius: 20px;
+}
+
+/* ------------------- Reset ------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-light);
+    line-height: 1.7;
+    transition: var(--transition);
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* ------------------- Dark Theme ------------------- */
+body.dark {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* ------------------- Custom Scrollbar ------------------- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+body.dark ::-webkit-scrollbar-track {
+    background: #1a2236;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* ------------------- Header ------------------- */
+.header {
+    text-align: center;
+    margin: 30px 0 50px;
+    position: relative;
+}
+
+.header h1 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+.header h1::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-light);
+    border-radius: 2px;
+}
+
+.back-btn {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 10px 20px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-btn:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+}
+
+/* ------------------- Cases Container ------------------- */
+.cases-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+/* ------------------- Case Card ------------------- */
+.case-card {
+    background: var(--card-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+    position: relative;
+}
+
+body.dark .case-card {
+    background: var(--card-dark);
+    box-shadow: var(--shadow-dark);
+}
+
+.case-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.case-header {
+    padding: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: white;
+}
+
+.case-header h2 {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+/* ------------------- Images Grid ------------------- */
+.images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 20px;
+}
+
+.case-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.case-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ------------------- Modal ------------------- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: auto;
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+    margin-top: 60px;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close:hover {
+    color: var(--primary-light);
+}
+
+.caption {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+/* ------------------- Step Descriptions ------------------- */
+.step-description {
+    padding: 0 20px 20px;
+    font-style: italic;
+    color: var(--text-light);
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+body.dark .step-description {
+    color: var(--text-dark);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ------------------- Theme Toggle ------------------- */
+.theme-toggle-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 100;
+}
+
+.theme-toggle {
+    width: 60px;
+    height: 30px;
+    border-radius: 50px;
+    background: var(--primary-light);
+    position: relative;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    transition: var(--transition);
+}
+
+.theme-toggle::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: white;
+    transition: var(--transition);
+    left: 2px;
+}
+
+body.dark .theme-toggle::before {
+    transform: translateX(30px);
+}
+
+/* ------------------- Responsive Design ------------------- */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.2rem;
+        margin-top: 20px;
+    }
+    
+    .back-btn {
+        position: relative;
+        margin-bottom: 20px;
+        left: 0;
+        top: 0;
+        transform: none;
+        display: inline-flex;
+    }
+    
+    .cases-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .images-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    
+    .case-image {
+        height: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .case-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .images-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+  .cases-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .cases-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .cases-container .case-card { width: 100%; }
+}
+@media (max-width: 480px) {
+  .cases-container {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .cases-container .case-card { width: 100%; }
+}
+
+/* ------------------- Animations ------------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.case-card {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.case-card:nth-child(odd) {
+    animation-delay: 0.1s;
+}
+
+.case-card:nth-child(even) {
+    animation-delay: 0.2s;
+}
+
+/* ------------------- Loading Animation ------------------- */
+.case-image {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 70% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+body.dark .case-image {
+    background: linear-gradient(90deg, #2a2f3b 25%, #232833 50%, #2a2f3b 75%);
+    background-size: 200% 100%;
+}
+
