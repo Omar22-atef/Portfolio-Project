@@ -133,6 +133,7 @@ body.dark ::-webkit-scrollbar-track {
     box-shadow: var(--shadow-light);
     transition: var(--transition);
     position: relative;
+    touch-action: pan-y;
 }
 
 body.dark .case-card {
@@ -157,6 +158,8 @@ body.dark .case-card {
     margin: 0;
 }
 
+
+
 /* ------------------- Images Grid ------------------- */
 .images-grid {
     display: grid;
@@ -172,6 +175,7 @@ body.dark .case-card {
     border-radius: 10px;
     transition: var(--transition);
     cursor: pointer;
+    touch-action: manipulation;
 }
 
 .case-image:hover {
