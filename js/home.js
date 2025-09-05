@@ -169,21 +169,25 @@ function createParticles() {
     }
 }
 
-const dropBtn = document.querySelector('.dropbtn');
-const dropdownContent = document.getElementById('dropdown-content');
-const closeDropdownBtn = document.querySelector('.close-dropdown');
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const navLinks = document.getElementById('nav-links');
 
-dropBtn.addEventListener('click', () => {
-  dropdownContent.classList.toggle('show');
-});
+  mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
 
-closeDropdownBtn.addEventListener('click', () => {
-  dropdownContent.classList.remove('show');
-});
+    if (navLinks.classList.contains('active')) {
+      mobileToggle.textContent = '✖'; 
+    } else {
+      mobileToggle.textContent = '☰';
+    }
+  });
 
-window.addEventListener('click', (e) => {
-  if (!e.target.closest('.dropdown')) {
-    dropdownContent.classList.remove('show');
-  }
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      mobileToggle.textContent = '☰';
+    });
+  });
 });
 
