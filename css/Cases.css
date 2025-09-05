@@ -162,38 +162,37 @@ body.dark .case-card {
 
 /* ------------------- Images Grid ------------------- */
 .images-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 20px;
 }
 
 .case-image {
-    width: 100%;
-    aspect-ratio: 1/2;          
-    object-fit: contain;        
-    background-color: #f8f8f8; 
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    touch-action: manipulation;
+  width: 100%;
+  aspect-ratio: 12/20;
+  object-fit: contain;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  touch-action: manipulation;
 
-    padding: 5px;               
-    max-height: 180px;          
+  padding: 0px;         
 }
 
 .case-image:hover {
-    transform: scale(1.08); 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transform: scale(1.08);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-
 
 @media (max-width: 768px) {
   .case-image {
     aspect-ratio: 1/1;
-    max-height: 150px;
+    max-height: 170px; 
   }
 }
+
 
 
 /* ------------------- Modal ------------------- */
