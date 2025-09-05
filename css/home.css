@@ -159,7 +159,7 @@ body.dark .navbar {
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 15px;
 }
 
 .nav-links a {
@@ -222,6 +222,7 @@ body.dark .navbar {
 body.dark .theme-toggle::before {
   transform: translateX(24px);
 }
+
 
 /* ------------------- Dropdown ------------------- */
 .dropdown {
@@ -586,8 +587,8 @@ li:hover::before {
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
 
-  text-decoration: none;  /* يشيل خط تحت النص */
-  color: inherit;         /* يستخدم نفس لون النص */
+  text-decoration: none;  
+  color: inherit;         
   cursor: pointer;
 }
 
@@ -761,40 +762,6 @@ button:hover::before, .resume-btn:hover::before {
   text-decoration: underline;
 }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 200px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-  border-radius: 8px;
-  padding: 10px;
-  z-index: 1000;
-}
-
-.dropdown-content.show {
-  display: block;
-}
-
-.close-dropdown {
-  display: block;
-  text-align: right;
-  font-size: 24px;
-  color: #333;
-  cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.close-dropdown:hover {
-  color: #0ea5e9; 
-}
-
-
 
 
 /* Responsive adjustments for new buttons */
@@ -936,6 +903,42 @@ button:hover::before, .resume-btn:hover::before {
   .profile-img-container {
     width: 170px;
     height: 170px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    position: absolute;
+    top: 60px; 
+    right: 0;
+    width: 200px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: block;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #333;
+    z-index: 1000;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-toggle {
+    display: none;
   }
 }
 
