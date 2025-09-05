@@ -168,3 +168,22 @@ function createParticles() {
         container.appendChild(particle);
     }
 }
+
+const dropBtn = document.querySelector('.dropbtn');
+const dropdownContent = document.getElementById('dropdown-content');
+const closeDropdownBtn = document.querySelector('.close-dropdown');
+
+dropBtn.addEventListener('click', () => {
+  dropdownContent.classList.toggle('show');
+});
+
+closeDropdownBtn.addEventListener('click', () => {
+  dropdownContent.classList.remove('show');
+});
+
+window.addEventListener('click', (e) => {
+  if (!e.target.closest('.dropdown')) {
+    dropdownContent.classList.remove('show');
+  }
+});
+
