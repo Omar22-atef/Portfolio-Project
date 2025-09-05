@@ -1,88 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    loadOrder();
-    loadImagesOrder(); 
+    // loadOrder();
+    // loadImagesOrder(); 
     initTheme();
-    initSortable();
+    // initSortable();
     initImageModals();
-    initImageSortable(); 
+    // initImageSortable(); 
 });
 
 
-function saveOrder() {
-    const container = document.querySelector('.cases-container');
-    const order = Array.from(container.querySelectorAll('.case-card')).map(card => card.dataset.id);
-    localStorage.setItem('casesOrder', JSON.stringify(order));
-}
+// function saveOrder() {
+//     const container = document.querySelector('.cases-container');
+//     const order = Array.from(container.querySelectorAll('.case-card')).map(card => card.dataset.id);
+//     localStorage.setItem('casesOrder', JSON.stringify(order));
+// }
 
-function loadOrder() {
-    const container = document.querySelector('.cases-container');
-    const savedOrder = JSON.parse(localStorage.getItem('casesOrder'));
-    if (!savedOrder) return;
+// function loadOrder() {
+//     const container = document.querySelector('.cases-container');
+//     const savedOrder = JSON.parse(localStorage.getItem('casesOrder'));
+//     if (!savedOrder) return;
 
-    savedOrder.forEach(id => {
-        const card = container.querySelector(`.case-card[data-id='${id}']`);
-        if (card) container.appendChild(card);
-    });
-}
+//     savedOrder.forEach(id => {
+//         const card = container.querySelector(`.case-card[data-id='${id}']`);
+//         if (card) container.appendChild(card);
+//     });
+// }
 
-function initSortable() {
-  const container = document.querySelector('.cases-container');
-  if (!container) return;
+// function initSortable() {
+//   const container = document.querySelector('.cases-container');
+//   if (!container) return;
 
-  new Sortable(container, {
-    animation: 150,
-    ghostClass: 'dragging',
-    handle: '.case-card',
-    touchStartThreshold: 5,
-    delay: 150,
-    delayOnTouchOnly: true,
-    filter: '.case-image',
-    preventOnFilter: false,
-    onEnd: function() {
-      saveOrder();
-    }
-  });
-}
+//   new Sortable(container, {
+//     animation: 150,
+//     ghostClass: 'dragging',
+//     handle: '.case-card',
+//     touchStartThreshold: 5,
+//     delay: 150,
+//     delayOnTouchOnly: true,
+//     filter: '.case-image',
+//     preventOnFilter: false,
+//     onEnd: function() {
+//       saveOrder();
+//     }
+//   });
+// }
 
-function initImageSortable() {
-  document.querySelectorAll('.images-grid').forEach(grid => {
-    new Sortable(grid, {
-      group: 'shared', 
-      animation: 150,
-      delay: 150,
-      delayOnTouchOnly: true,
-      ghostClass: 'dragging',
-      onEnd: function (evt) {
-        saveImagesOrder();
-      }
-    });
-  });
-}
+// function initImageSortable() {
+//   document.querySelectorAll('.images-grid').forEach(grid => {
+//     new Sortable(grid, {
+//       group: 'shared', 
+//       animation: 150,
+//       delay: 150,
+//       delayOnTouchOnly: true,
+//       ghostClass: 'dragging',
+//       onEnd: function (evt) {
+//         saveImagesOrder();
+//       }
+//     });
+//   });
+// }
 
-function saveImagesOrder() {
-  const imagesData = {};
-  document.querySelectorAll('.case-card').forEach(card => {
-    const caseId = card.dataset.id;
-    const imgs = Array.from(card.querySelectorAll('.case-image')).map(img => img.dataset.imgId);
-    imagesData[caseId] = imgs;
-  });
-  localStorage.setItem('imagesOrder', JSON.stringify(imagesData));
-}
+// function saveImagesOrder() {
+//   const imagesData = {};
+//   document.querySelectorAll('.case-card').forEach(card => {
+//     const caseId = card.dataset.id;
+//     const imgs = Array.from(card.querySelectorAll('.case-image')).map(img => img.dataset.imgId);
+//     imagesData[caseId] = imgs;
+//   });
+//   localStorage.setItem('imagesOrder', JSON.stringify(imagesData));
+// }
 
-function loadImagesOrder() {
-  const saved = JSON.parse(localStorage.getItem('imagesOrder'));
-  if (!saved) return;
-  for (const [caseId, imgs] of Object.entries(saved)) {
-    const card = document.querySelector(`.case-card[data-id='${caseId}']`);
-    if (card) {
-      const grid = card.querySelector('.images-grid');
-      imgs.forEach(imgId => {
-        const img = grid.querySelector(`[data-img-id='${imgId}']`);
-        if (img) grid.appendChild(img);
-      });
-    }
-  }
-}
+// function loadImagesOrder() {
+//   const saved = JSON.parse(localStorage.getItem('imagesOrder'));
+//   if (!saved) return;
+//   for (const [caseId, imgs] of Object.entries(saved)) {
+//     const card = document.querySelector(`.case-card[data-id='${caseId}']`);
+//     if (card) {
+//       const grid = card.querySelector('.images-grid');
+//       imgs.forEach(imgId => {
+//         const img = grid.querySelector(`[data-img-id='${imgId}']`);
+//         if (img) grid.appendChild(img);
+//       });
+//     }
+//   }
+// }
 
 function initImageModals() {
     const modal = document.getElementById('imageModal');
