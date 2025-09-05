@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     loadOrder();
+    loadImagesOrder(); 
     initTheme();
     initSortable();
     initImageModals();
+    initImageSortable(); 
 });
+
 
 function saveOrder() {
     const container = document.querySelector('.cases-container');
@@ -29,18 +32,57 @@ function initSortable() {
   new Sortable(container, {
     animation: 150,
     ghostClass: 'dragging',
-    handle: '.case-card',        
+    handle: '.case-card',
     touchStartThreshold: 5,
-    delay: 150,                  
+    delay: 150,
     delayOnTouchOnly: true,
-    filter: '.case-image',       
-    preventOnFilter: false,      
+    filter: '.case-image',
+    preventOnFilter: false,
     onEnd: function() {
-      saveOrder(); 
+      saveOrder();
     }
   });
 }
 
+function initImageSortable() {
+  document.querySelectorAll('.images-grid').forEach(grid => {
+    new Sortable(grid, {
+      group: 'shared', 
+      animation: 150,
+      delay: 150,
+      delayOnTouchOnly: true,
+      ghostClass: 'dragging',
+      onEnd: function (evt) {
+        saveImagesOrder();
+      }
+    });
+  });
+}
+
+function saveImagesOrder() {
+  const imagesData = {};
+  document.querySelectorAll('.case-card').forEach(card => {
+    const caseId = card.dataset.id;
+    const imgs = Array.from(card.querySelectorAll('.case-image')).map(img => img.dataset.imgId);
+    imagesData[caseId] = imgs;
+  });
+  localStorage.setItem('imagesOrder', JSON.stringify(imagesData));
+}
+
+function loadImagesOrder() {
+  const saved = JSON.parse(localStorage.getItem('imagesOrder'));
+  if (!saved) return;
+  for (const [caseId, imgs] of Object.entries(saved)) {
+    const card = document.querySelector(`.case-card[data-id='${caseId}']`);
+    if (card) {
+      const grid = card.querySelector('.images-grid');
+      imgs.forEach(imgId => {
+        const img = grid.querySelector(`[data-img-id='${imgId}']`);
+        if (img) grid.appendChild(img);
+      });
+    }
+  }
+}
 
 function initImageModals() {
     const modal = document.getElementById('imageModal');
